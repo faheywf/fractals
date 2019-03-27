@@ -2,7 +2,7 @@
 
 Run these commands:
 
-```
+```bash
 npm install
 npm start
 ```
