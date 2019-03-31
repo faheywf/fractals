@@ -1,3 +1,4 @@
+import sierpinskicarpetamericanflag from './sierpinskicarpetamericanflag';
 import sierpinski from './sierpinskicarpetrainbow';
 import { FillStyle } from './utility';
 
@@ -22,6 +23,9 @@ const filename = document.getElementById('filename') as HTMLInputElement;
 const btn = document.getElementById('download') as HTMLAnchorElement;
 const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 const ctx = setupCanvas(canvas);
+const l = 2048;
+canvas.width = l;
+canvas.height = l;
 
 function saveImage() {
   btn.setAttribute('download', filename.value);
@@ -38,11 +42,13 @@ function gradientMaker(ctx: CanvasRenderingContext2D, colors: string[]): CanvasG
   return g;
 }
 
-sierpinski(
-  ctx,
-  0,
-  0,
-  1048,
-  gradientMaker(ctx, ["purple", "blue", "green", "yellow", "orange", "red"]),
-  4
-);
+
+// sierpinskicarpetamericanflag(
+//   ctx,
+//   4096,
+//   4
+// );
+
+// ["violet", "indigo", "blue", "green", "yellow", "orange", "red"]
+const rainbow = ["purple", "blue", "green", "yellow", "orange", "red"];
+sierpinski(ctx, 0, 0, l, gradientMaker(ctx, rainbow), 4);
