@@ -1,5 +1,18 @@
 type FillStyle = string | CanvasGradient | CanvasPattern;
 
+const filename = document.getElementById('filename');
+const btn = document.getElementById('download');
+const canvas: HTMLCanvasElement = document.getElementById(
+  "canvas"
+) as HTMLCanvasElement;
+const ctx = canvas.getContext("2d");
+
+function saveImage() {
+  btn.setAttribute('download', filename.textContent);
+  btn.setAttribute('href', canvas.toDataURL());
+}
+btn.onclick = saveImage;
+
 class Square {
   x: number;
   y: number;
@@ -58,10 +71,6 @@ function sierpinski(
   }
 }
 
-const canvas: HTMLCanvasElement = document.getElementById(
-  "canvas"
-) as HTMLCanvasElement;
-const ctx = canvas.getContext("2d");
 sierpinski(
   ctx,
   0,
